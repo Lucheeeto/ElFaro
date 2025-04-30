@@ -45,6 +45,7 @@ nav a:hover {
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 15px;
 }
 /*color de fondo y dimensiones para  cada articulo deseleccionado*/
 .articulo {
@@ -52,6 +53,8 @@ nav a:hover {
     padding: 20px;
     border-radius: 8px;
     transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
 /*fondo y color para los articulos seleccionados*/
 .articulo:hover {
@@ -114,5 +117,7 @@ footer {
 @media (max-width: 768px) {
     .grid-articulos {
         grid-template-columns: 1fr;
+        width: 100%;
+        padding: 0 10px;
     }
 }
