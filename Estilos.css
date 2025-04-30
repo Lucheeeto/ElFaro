@@ -38,7 +38,7 @@ nav a:hover {
     text-align: center;
     margin-bottom: 20px;
 }
-/*dimensiones y tipo de grilla para los articulos*/
+/*dimensiones y tipo de grilla para los articulos, especialmente para smartphones*/
 .grid-articulos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -47,7 +47,7 @@ nav a:hover {
     margin: 0 auto;
     padding: 15px;
 }
-/*color de fondo y dimensiones para  cada articulo deseleccionado*/
+/*color de fondo y dimensiones para cada articulo deseleccionado (ocupar todo el ancho disponible)*/
 .articulo {
     background: white;
     padding: 20px;
@@ -113,7 +113,7 @@ footer {
     margin-top: 8px;
     text-align: center;
 }
-/*dimensiones y frames para los archivos media*/
+/*dimensiones y frames para los archivos media (optimizacion para smartphones)*/
 @media (max-width: 768px) {
     .grid-articulos {
         grid-template-columns: 1fr;
