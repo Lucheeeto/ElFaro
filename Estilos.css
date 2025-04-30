@@ -1,0 +1,118 @@
+/*referencia a la fuente Open sans de google para cambiar la letra de la pagina*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+/*estilo para body, cambio de fuente, color de fondo*/
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+/*fondo y dimensiones para el header*/
+header {
+    padding: 20px;
+    background-color: white;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+/*nav centrado y con espacio*/
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/*subrrayado para links*/
+nav a {
+    margin: 0 5px;
+    text-decoration: underline;
+}
+/*tipo de fuente al seleccionar un link*/
+nav a:hover {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/*div de ultimas noticias centrado y con margenes*/
+.ultnot {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/*dimensiones y tipo de grilla para los articulos*/
+.grid-articulos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/*color de fondo y dimensiones para  cada articulo deseleccionado*/
+.articulo {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+/*fondo y color para los articulos seleccionados*/
+.articulo:hover {
+    background: black;
+    color: white;
+}
+
+/*dimensiones, fondo, y color de divs clase multimedia container*/
+.multimedia-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+ /*color, margenes, tamano de fuente del titulo del video*/
+ .multimedia-container h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+/*margenes y alinacion para los items multimedia*/
+.multimedia-item {
+    margin: 25px 0;
+    text-align: center;
+}
+/*margenes, tamano, y fondo de bloques de audio y video*/
+video, audio {
+    width: 90%;
+    margin: 15px auto;
+    display: block;
+    border-radius: 8px;
+}
+/*color de fondo, espacio interno y borde para el elemento audio*/
+audio {
+    background: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/*fondo, margen, color y margenes para el footer*/
+footer {
+    background-color: #c9d2d0;
+    color: #31231e;
+    padding: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+/*color de fuente, tamano de fuente, margenes y alineacion de las leyendas de los archivos multimedia*/
+.leyenda {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 8px;
+    text-align: center;
+}
+/*dimensiones y frames para los archivos media*/
+@media (max-width: 768px) {
+    .grid-articulos {
+        grid-template-columns: 1fr;
+    }
+}
