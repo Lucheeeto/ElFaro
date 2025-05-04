@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+    <meta charset="UTF-8">
+    <!--Se agrega un viewport para que el contenido se escale dependiendo el dispositivo donde se usa la pagina web-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>El Faro - Negocios</title>
+        <link rel="stylesheet" href="Estilos.css">
+    </head>
+<body>
+    <header style="display: flex; align-items: center; gap: 20px;">
+        <img src="img/Logo.jpg" alt="Logo El Faro" width="150">
+        <h1>El Faro - Sección Negocios</h1>
+        <div id="reloj"></div>
+    </header>
+
+    <button class="btn-flotante" id="btnPublicar">+</button>
+
+    <nav>
+        <a style="margin: 5px" href="index.html">Inicio</a>
+        <a style="margin: 5px" href="Deporte.html">Deporte</a>
+        <a style="margin: 5px" href="Negocios.html">Negocios</a>
+    </nav>
+<!--Eliminamos tablas e implementamos divs dandoles clases y subclases para luego llamarlas en los style con css-->
+<!--creamos clase grid-articulos, lo cual envolvera los articulos que se muestran en las noticias de negocios-->
+    <div class="grid-articulos"></div>
+
+    <div class="contador-articulos">
+        Artículos publicados: <span id="contador">0</span>
+    </div>
+
+    <div class="form-overlay" id="formOverlay">
+        <div class="form-container">
+            <span class="close-btn" id="closeForm">&times;</span>
+            <h2>Publicar Nueva Noticia</h2>
+            <form id="formArticulo">
+                <input type="text" placeholder="Título" required>
+                <textarea placeholder="Contenido" rows="5" required></textarea>
+                <input type="file" id="mediaInput" accept="image/*, video/*">
+                <button type="submit">Publicar</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 El Faro - Todos los derechos reservados</p>
+        <button class="btn-contacto" onclick="location.href='Contacto.html'">Contacto</button>
+    </footer>
+    
+    <script src="scripts.js" defer></script>
+
+</body>
+</html>

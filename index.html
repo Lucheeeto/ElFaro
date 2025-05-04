@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+    <meta charset="UTF-8">
+    <!--Se agrega un viewport para que el contenido se escale dependiendo el dispositivo donde se usa la pagina web-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>El Faro - Periódico Digital</title>
+        <link rel="stylesheet" href="Estilos.css">
+    </head>
+<body>
+    <header style="display: flex; align-items: center; gap: 20px;">
+        <img src="img/Logo.jpg" alt="Logo El Faro" width="150">
+        <h1>El Faro</h1>
+        <div id="reloj"></div>
+    </header>
+
+    <nav>
+        <a style="margin: 5px" href="index.html">Inicio</a>
+        <a style="margin: 5px" href="Deporte.html">Deporte</a>
+        <a style="margin: 5px" href="Negocios.html">Negocios</a>
+    </nav>
+
+    <button class="btn-flotante" id="btnPublicar">+</button>
+
+    <section id="inicio">
+        <!--eliminacion de tablas y creacion de contenedores individuales para titulos y articulos de forma independiente-->
+        <div class="ultnot">
+            <h2>Últimas Noticias</h2>
+        </div>
+        <div class="grid-articulos"></div>
+
+        <!--container multimedia, con titulo, leyenda, video y audio-->
+        <div class="multimedia-container">
+            <div class="multimedia-item">
+                <h3>Video Destacado</h3>
+                <p class="leyenda">Gol U.de Chile a Botafogo</p>
+                <video controls>
+                    <source src="media/goludechile.webm" type="video/webm">
+                    Tu navegador no soporta video HTML5.
+                </video>
+            </div>
+
+            <div class="multimedia-item">
+                <h3>Presidente Boric responde a Trump</h3>
+                <p class="leyenda">Respuesta de Boric a aranceles de EE.UU.</p>
+                <audio controls>
+                    <source src="media/respuestaboric.ogg" type="audio/ogg">
+                    Tu navegador no soporta audio HTML5.
+                </audio>
+            </div>
+    </section>
+    
+    <div class="contador-articulos">
+        Artículos publicados: <span id="contador">0</span>
+    </div>
+
+    <div class="form-overlay" id="formOverlay">
+        <div class="form-container">
+            <span class="close-btn" id="closeForm">&times;</span>
+            <h2>Publicar Nueva Noticia</h2>
+            <form id="formArticulo">
+                <input type="text" placeholder="Título" required>
+                <!-- Selector fijo para index -->
+                <select id="selectCategoria" required>
+                    <option value="">Seleccione categoría</option>
+                    <option value="Deportes">Deportes</option>
+                    <option value="Negocios">Negocios</option>
+                </select>
+                <textarea placeholder="Contenido (Separe párrafos con Enter)" rows="8" required></textarea>
+                <input type="file" id="mediaInput" accept="image/*, video/*">
+                <button type="submit">Publicar</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 El Faro - Todos los derechos reservados</p>
+        <button class="btn-contacto" onclick="location.href='Contacto.html'">Contacto</button>
+    </footer>
+    <script src="scripts.js" defer></script>
+</body>
+</html>

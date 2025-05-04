@@ -1,0 +1,382 @@
+/*referencia a la fuente Open sans de google para cambiar la letra de la pagina*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+/*estilo para body, cambio de fuente, color de fondo*/
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+/*fondo y dimensiones para el header*/
+header {
+    padding: 20px;
+    background-color: white;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+/*nav centrado y con espacio*/
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/*subrrayado para links*/
+nav a {
+    margin: 0 5px;
+    text-decoration: underline;
+}
+/*tipo de fuente al seleccionar un link*/
+nav a:hover {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/*div de ultimas noticias centrado y con margenes*/
+.ultnot {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/*dimensiones y tipo de grilla para los articulos, especialmente para smartphones*/
+.grid-articulos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+/*color de fondo y dimensiones para cada articulo deseleccionado (ocupar todo el ancho disponible)*/
+.articulo {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /*se introduce este codigo para evitar desbordamientos*/
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.articulo p {
+    margin-bottom: 1em;
+    line-height: 1.3; /* Mismo interlineado para todos */
+    text-align: justify; /* Texto justificado */
+}
+
+.articulo p:last-child {
+    margin-bottom: 0;
+}
+
+/*fondo y color para los articulos seleccionados*/
+.articulo:hover {
+    background: black;
+    color: white;
+}
+
+/*dimensiones, fondo, y color de divs clase multimedia container*/
+.multimedia-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+ /*color, margenes, tamano de fuente del titulo del video*/
+ .multimedia-container h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+/*margenes y alinacion para los items multimedia*/
+.multimedia-item {
+    margin: 25px 0;
+    text-align: center;
+}
+/*margenes, tamano, y fondo de bloques de audio y video*/
+video, audio {
+    width: 90%;
+    margin: 15px auto;
+    display: block;
+    border-radius: 8px;
+}
+/*color de fondo, espacio interno y borde para el elemento audio*/
+audio {
+    background: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/*fondo, margen, color y margenes para el footer*/
+footer {
+    background-color: #c9d2d0;
+    color: #31231e;
+    padding: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+/*color de fuente, tamano de fuente, margenes y alineacion de las leyendas de los archivos multimedia*/
+.leyenda {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 8px;
+    text-align: center;
+}
+/*dimensiones y frames para los archivos media (optimizacion para smartphones)*/
+@media (max-width: 768px) {
+    .grid-articulos {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+    
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    #reloj {
+        margin: 10px 0;
+    }
+    
+    .form-container {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+
+/*estilo de reloj*/
+#reloj {
+    margin-left: auto;
+    font-size: 0.9em;
+    color: #666;
+    background: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+/*estilo formulario*/
+.form-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+}
+
+/*estilo container formulario*/
+.form-container {
+    background: white;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+    animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #31231e;
+}
+
+/*estilos de los formulario*/
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Open Sans';
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #31231e;
+    outline: none;
+}
+
+input[type="file"] {
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 100%;
+}
+
+/*estilo del boton de contacto*/
+.btn-contacto {
+    background: #c9d2d0;
+    color: #31231e;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.btn-contacto:hover {
+    background: #b8c4c1;
+    transform: translateY(-2px);
+}
+
+/*estilos del contador de articulos*/
+.contador-articulos {
+    text-align: center;
+    margin: 30px 0;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-weight: bold;
+    color: #666;
+}
+
+/*estilos de los archivos media*/
+.articulo-media {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    display: block;
+    margin: 15px auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/*boton eliminar de los articulos*/
+.btn-eliminar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-eliminar:hover {
+    background: #cc0000;
+    transform: scale(1.1);
+}
+
+/*estilo boton + de publicar articulos*/
+.btn-flotante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #31231e;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .btn-flotante:hover {
+    transform: scale(1.1) rotate(90deg);
+    background: #1a1614;
+  }
+
+  /*estilo boton modo borrar*/
+.btn-trash {
+    position: fixed;
+    bottom: 30px;
+    right: 100px;  
+    width: 48px;
+    height: 48px;
+    background-color: #31231e;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.3s;
+    z-index: 1001;
+  }
+  
+  .btn-trash:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  }
+  
+  .btn-trash:active {
+    transform: scale(0.95);
+  }
+
+/*estilo de la visualizacion de la categoria en las noticias de la pagina index*/
+.categoria {
+    color: #666;
+    font-size: 0.9em;
+    margin: 10px 0;
+    font-weight: bold;
+    margin: 15px 0;
+    display: block;
+    padding-bottom: 10px;
+}
+ /*elimina el margen superior del primer parrafo de las noticias*/
+.contenido-noticia p:first-child {
+    margin-top: 0;
+}
+
+ /*elimina el margen inferior del ultimo parrafo de las noticias*/
+.contenido-noticia p:last-child {
+    margin-bottom: 0;
+}
+
+/*estilo del selector de categoria del formulario de publicacion*/
+#selectCategoria {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Open Sans';
+    background: white;
+    transition: border-color 0.3s;
+}
+
+#selectCategoria:focus {
+    border-color: #31231e;
+    outline: none;
+}
