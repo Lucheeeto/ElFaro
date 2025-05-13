@@ -8,19 +8,19 @@ const baseArticulos = {
             titulo: `Botafogo sufre una pesadilla en santiago`,
             categoria: "Deportes",
             contenido: `La U amargó al último campeón de la Copa Libertadores, ganándole 1 a 0 en Santiago y llevándose los 3 puntos.`,
-            media: null
+            media: "<img src='img/udechilevsbotafogo.avif' class='articulo-media'>"
         },
         {
             titulo: `Colo Colo rescata un empate e la agonía ante Atlético Bucaramanga en su debut en Libertadores`,
             categoria: "Deportes",
             contenido: `El Cacique no tuvo su mejor noche, pero de todas formas logró rescatar un punto de oro en su estreno en el torneo continental. Jorge Almirón queda con mucho por mejorar en un equipo que esta noche se salvó a puro corazón`,
-            media: null
+            media: "<img src='img/colocolo.webp' class='articulo-media'>"
         },
         {
             titulo: `Aranceles de EE.UU.: tensión en el libre comercio y alerta para el cobre chileno`,
             categoria: "Negocios",
             contenido: `EEUU impone arancel del 10% a importaciones chilenas desde el 5 de abril, pese a TLC. Sectores como agroindustria (vino y frutas) enfrentan pérdida de competitividad y costos elevados. Cobre, clave en exportaciones, sigue exento por ahora, pero con riesgos futuros`,
-            media: null
+            media: "<img src='img/cobrechile.jpg' class='articulo-media'>"
         }
     ],
     Deporte: [
@@ -106,13 +106,29 @@ function renderizarArticulos() {
     
     articulosCompletos.forEach(articulo => { 
         const div = document.createElement('div');
-        div.className = 'articulo';
+        div.className = 'col-12 col-md-6 col-lg-4 mb-4';
+
+        // Construimos la card con la imagen arriba (card-img-top)
+        const mediaHTML = articulo.media
+            ? articulo.media.replace(
+                'class="articulo-media"',
+                'class="card-img-top articulo-media"'
+              )
+            : '';
+
         div.innerHTML = `
-            ${modoEliminacion ? `<button class="btn-eliminar" onclick="eliminarArticulo(${articulo.id})">X</button>` : ''}
-            <h3>${articulo.titulo}</h3>
-            ${seccion === 'index' ? `<span class="categoria">${articulo.categoria}</span>` : ''}
-            <div class="contenido-noticia">${articulo.contenido}</div>
-            ${articulo.media || ''}
+            <div class="card h-100 shadow-sm">
+                ${mediaHTML}
+                <div class="card-body">
+                    ${modoEliminacion ? 
+                        `<button class="btn-eliminar btn-danger btn-sm position-absolute top-0 end-0 m-2" 
+                                onclick="eliminarArticulo(${articulo.id})">X</button>` 
+                        : ''}
+                    <h3 class="card-title fw-bold">${articulo.titulo}</h3>
+                    ${seccion === 'index' ? `<small class="text-muted mb-3 d-block">${articulo.categoria}</small>` : ''}
+                    <div class="card-text">${articulo.contenido}</div>
+                </div>
+            </div>
         `;
         grid.appendChild(div);
     });
@@ -272,21 +288,25 @@ function inicializarAplicacion() {
     manejarFormularioArticulos();
     manejarFormularioContacto();
 
-    //boton flotante + que rota
-    const btnPublicar = document.createElement('button');
-    btnPublicar.id = 'btnPublicar';
-    btnPublicar.className = 'btn-flotante';
-    btnPublicar.innerHTML = '+';  
-    btnPublicar.onclick = () => document.getElementById('formOverlay').style.display = 'block';
-    document.body.appendChild(btnPublicar);
+    // Botón flotante (solo si no existe)
+    if (!document.getElementById('btnPublicar')) {
+        const btnPublicar = document.createElement('button');
+        btnPublicar.id = 'btnPublicar';
+        btnPublicar.className = 'btn-flotante';
+        btnPublicar.innerHTML = '+';
+        btnPublicar.onclick = () => document.getElementById('formOverlay').style.display = 'block';
+        document.body.appendChild(btnPublicar);
+    }
 
-    // boton modo eliminacion que solo se expande al seleccionar 
-    const btnEliminar = document.createElement('button');
-    btnEliminar.id = 'btnEliminar';
-    btnEliminar.className = 'btn-trash';
-    btnEliminar.innerHTML = '🗑';
-    btnEliminar.onclick = toggleModoEliminacion;
-    document.body.appendChild(btnEliminar);
+    // Botón modo eliminación
+    if (!document.getElementById('btnEliminar')) {
+        const btnEliminar = document.createElement('button');
+        btnEliminar.id = 'btnEliminar';
+        btnEliminar.className = 'btn-trash';
+        btnEliminar.innerHTML = '🗑';
+        btnEliminar.onclick = toggleModoEliminacion;
+        document.body.appendChild(btnEliminar);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', inicializarAplicacion);
